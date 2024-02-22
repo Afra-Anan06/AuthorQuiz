@@ -1,9 +1,14 @@
 /* .maindv {
     background-color: rgb(210, 237, 237);
 } */
-
+.AuthorQuiz
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
 #fstline{
     font-family: "Montserrat", sans-serif;
+    font-size: 2em;
 }
 .ashbg {
     margin-top: 10px;
@@ -15,7 +20,7 @@
 
 .img1 {
     height: 330px;
-    width: 400px;
+    width: auto;
 }
 
 .lwrdv {
@@ -37,6 +42,7 @@
 .btndv button
 {
   margin-bottom:  20px;
+
 }
 .btn1
 {  
@@ -45,5 +51,6 @@
     background-color:rgb(241,246,255);
     text-align: left;
     border: 0px;
+    border-left: 3px solid rgb(213,224,241);
   
 }
