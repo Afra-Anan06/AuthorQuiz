@@ -6,28 +6,28 @@
     font-family: "Montserrat", sans-serif;
 }
 .ashbg {
-    margin-top: 25px;
+    margin-top: 10px;
     background-color: rgb(233,234,239);
-    height: 130px;
+    height: 125px;
     text-align: left;
     padding-top: 10px;
 }
 
 .img1 {
-    height: 395px;
+    height: 330px;
     width: 400px;
 }
 
 .lwrdv {
     display: flex;
-    margin-top: 45px;
+    margin-top: 30px;
 }
 
 
 .btndv {
     display: flex;
     flex-direction: column;
-    
+
 }
 #line1
 {
