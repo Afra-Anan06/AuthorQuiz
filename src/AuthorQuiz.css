@@ -60,3 +60,13 @@
 .btn1:hover {
     background-color: rgb(233,234,239);
 }
+.lastdv
+{
+    display: flex;
+   justify-content: flex-end;
+}
+.lastdv > button{
+    background-color: rgb(143, 144, 149);
+    border: 0cap;
+     width:100px;
+}

@@ -98,7 +98,7 @@ function AuthorQuiz() {
         <div class="lwrdv" style={{backgroundColor:click?correctAns?'green':'red':''}}>
           <div>
             <img class="img1" src={correctAuthorImage} alt="" />
-            <div>
+            <div> 
               {correctAuthorName}
             </div>
 
@@ -115,6 +115,9 @@ function AuthorQuiz() {
             }
           </div>
         </div>
+        <div className="lastdv">
+            <button onClick={() =>init()}>Continue</button>
+          </div>
       </body>
     </div>
   );
