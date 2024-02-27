@@ -11,10 +11,19 @@ function AuthorQuiz() {
   const [correctAuthorIndex, setCorrectAuthorIndex] = useState(getRandomNumber(authors.length));
   const [correctAuthorImage, setCorrectAuthorImage] = useState('');
   const [correctAuthorName, setCorrectAuthorName] = useState('');
+  const [click, setClick] = useState(false);
+  const [correctAns, setCorrectAns] = useState(false);
   const [correctBook, setCorrectBook] = useState(0);
   const [options, setOptions] = useState(['']);
   function getRandomNumber(n) {
     return Math.floor(Math.random() * n);
+  }
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
   function init() {
     let tmpArray = [];
@@ -38,16 +47,17 @@ function AuthorQuiz() {
     }
     //set travers for options append in temp array
     mySet.forEach(
-      (wrongAuthorIndex)=> {
+      (wrongAuthorIndex) => {
         const wrongBook = getRandomNumber(authors[wrongAuthorIndex].books.length);
         tmpArray = [...tmpArray, (authors[wrongAuthorIndex].books[wrongBook])];
       }
     )
+    shuffleArray(tmpArray);
     setOptions(tmpArray);
   }
   useEffect(() => {
     init();
-  }, [])
+  }, [correctAuthorIndex,correctBook])
   // correctAuthorImage,correctBook
   const style1 =
   {
@@ -56,7 +66,18 @@ function AuthorQuiz() {
     paddingTop: '20px',
     textAlign: 'center'
   }
+  function handleButtonClick(elements) {
+    setClick(true);
+    console.log('rtdtrcd: '+elements.title);
+    console.log('era :'+ authors[correctAuthorIndex].books[correctBook].title);
+    if (elements.title === authors[correctAuthorIndex].books[correctBook].title) {
+      setCorrectAns(true);
 
+    }
+    else {
+      setCorrectAns(false);
+    }
+  }
   // console.log(authors);
   return (
     <div class="AuthorQuiz">
@@ -74,13 +95,13 @@ function AuthorQuiz() {
           <p id="line1">Author Quiz</p>
           <p>Select the book written by the Author</p>
         </div>
-        <div class="lwrdv">
+        <div class="lwrdv" style={{backgroundColor:click?correctAns?'green':'red':''}}>
           <div>
             <img class="img1" src={correctAuthorImage} alt="" />
             <div>
               {correctAuthorName}
             </div>
-           
+
           </div>
           <div class="btndv">
             {/* <button class="btn1"> This is a button </button>
@@ -89,7 +110,7 @@ function AuthorQuiz() {
             <button class="btn1">d</button> */}
             {
               options.map((elements, index) =>
-                (<button className="btn1" key={index}>{elements?.title}</button>)
+                (<button className="btn1" key={index} onClick={() =>handleButtonClick(elements)}>{elements?.title}</button>)
               )
             }
           </div>
